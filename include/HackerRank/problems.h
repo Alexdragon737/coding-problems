@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 // Node of a linked list
 class SinglyLinkedListNode {
     public:
