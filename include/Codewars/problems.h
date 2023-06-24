@@ -201,22 +201,6 @@ namespace Codewars
         return a;
     }
 
-    // Problem: https://www.codewars.com/kata/526571aae218b8ee490006f4/cpp
-    unsigned int countBits(unsigned long long n)
-    {
-      std::vector<int> nToBin;
-      unsigned long long sum=0;
-      while(n > 0)
-      {
-        int temp = n%2;
-        n /= 2;
-        if(temp == 1)
-          sum += 1;
-        nToBin.push_back(temp);
-      }
-      return sum;
-    }
-
     // Problem: https://www.codewars.com/kata/58f5c63f1e26ecda7e000029
     std::vector<std::string> wave(std::string y)
     {

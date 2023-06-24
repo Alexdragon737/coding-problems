@@ -10,10 +10,10 @@ namespace LeetCode
     {
         public:
         // Problem: https://leetcode.com/problems/roman-to-integer/
-        int romanToInt(string s) 
+        int romanToInt(std::string s) 
         {
             int num = 0;
-            map<char,int> numerals = {
+            std::map<char,int> numerals = {
                 {'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}
             };
             for(int i=0;i<s.length();i++)
@@ -30,9 +30,9 @@ namespace LeetCode
         }
 
         // Problem: https://leetcode.com/problems/contains-duplicate/
-        bool containsDuplicate(vector<int>& nums) 
+        bool containsDuplicate(std::vector<int>& nums) 
         {
-            map<int,bool> mapsol;
+            std::map<int,bool> mapsol;
             for(int i=0;i<nums.size();i++)
             {
                 if(mapsol.find(nums[i]) != mapsol.end())
@@ -58,9 +58,9 @@ namespace LeetCode
         }
 
         // Problem: https://leetcode.com/problems/fizz-buzz/
-        vector<string> fizzBuzz(int n) 
+        std::vector<std::string> fizzBuzz(int n) 
         {
-            vector<string> solution;
+            std::vector<std::string> solution;
             for(int i=1;i<=n;i++)
             {
                 if(i%3 == 0 && i%5 !=0)
@@ -78,7 +78,7 @@ namespace LeetCode
                     solution.push_back("FizzBuzz");
                     continue;
                 }
-                else solution.push_back(to_string(i));
+                else solution.push_back(std::to_string(i));
             }
             return solution;
         }
@@ -102,7 +102,7 @@ namespace LeetCode
         }
 
         // Problem: https://leetcode.com/problems/remove-element/
-        int removeElement(vector<int>& nums, int val) 
+        int removeElement(std::vector<int>& nums, int val) 
         {
             int initialSize = nums.size(), cutElements = 0;
             for(int i=0;i<nums.size();i++)
@@ -132,7 +132,7 @@ namespace LeetCode
         }
 
         // Problem: https://leetcode.com/problems/search-insert-position/
-        int searchInsert(vector<int>& nums, int target) 
+        int searchInsert(std::vector<int>& nums, int target) 
         {
             int low = 0, high = nums.size();
             while(low < high)
