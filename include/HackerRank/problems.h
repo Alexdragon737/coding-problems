@@ -4,7 +4,6 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
 
 namespace HackerRank
 {
@@ -45,14 +44,14 @@ namespace HackerRank
     };
 
     // Print linked list
-    void print_singly_linked_list(SinglyLinkedListNode* node, string sep) {
+    void print_singly_linked_list(SinglyLinkedListNode* node, std::string sep) {
         while (node) {
-            cout << node->data;
+            std::cout << node->data;
 
             node = node->next;
 
             if (node) {
-                cout << sep;
+                std::cout << sep;
             }
         }
     }
@@ -88,7 +87,7 @@ namespace HackerRank
         if (llist == NULL)
             return;
         reversePrint(llist->next);
-        cout << llist->data << '\n';
+        std::cout << llist->data << '\n';
     }
 
 
@@ -184,8 +183,8 @@ namespace HackerRank
      *  1. STRING_ARRAY strings
      *  2. STRING_ARRAY queries
      */
-    vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
-        vector<int> Occurences;
+    std::vector<int> matchingStrings(std::vector<std::string> strings, std::vector<std::string> queries) {
+        std::vector<int> Occurences;
 
         /*
             Compare each query with the strings.
@@ -215,7 +214,7 @@ namespace HackerRank
      *  2. INTEGER_ARRAY b
      */
 
-    int getTotalX(vector<int> a, vector<int> b) {
+    int getTotalX(std::vector<int> a, std::vector<int> b) {
         int numbers = 0;
 
         //Code for arrays with sizes > 1
@@ -248,14 +247,14 @@ namespace HackerRank
      *  1. INTEGER n
      *  2. 2D_INTEGER_ARRAY queries
      */
-    vector<int> dynamicArray(int n, vector<vector<int>> queries) {
-        vector<vector<int>> arr;
-        vector<int> answers;
+    std::vector<int> dynamicArray(int n, std::vector<std::vector<int>> queries) {
+        std::vector<std::vector<int>> arr;
+        std::vector<int> answers;
         int lastAnswer = 0;
 
         for(int i=0;i<n;i++)
         {
-            arr.push_back(vector<int>());
+            arr.push_back(std::vector<int>());
         }
         for(int i=0;i<queries.size();i++)
         {
@@ -285,7 +284,7 @@ namespace HackerRank
      * The function accepts 2D_INTEGER_ARRAY arr as parameter.
      */
 
-    int hourglassSum(vector<vector<int>> arr) {
+    int hourglassSum(std::vector<std::vector<int>> arr) {
         int maxSum = INT_MIN;
 
 
@@ -293,7 +292,7 @@ namespace HackerRank
             for(int j=0;j<4;j++)
             {
                 int sum = arr[i][j]+arr[i][j+1]+arr[i][j+2]+arr[i+1][j+1]+arr[i+2][j]+arr[i+2][j+1]+arr[i+2][j+2];
-                maxSum = max(sum,maxSum);
+                maxSum = std::max(sum,maxSum);
             }
 
         return maxSum;
@@ -310,7 +309,7 @@ namespace HackerRank
      *  2. INTEGER_ARRAY arr
      */
 
-    vector<int> rotateLeft(int d, vector<int> arr) {
+    std::vector<int> rotateLeft(int d, std::vector<int> arr) {
         for(int i=0;i<d;i++)
         {
             arr.push_back(arr[0]);
@@ -329,7 +328,7 @@ namespace HackerRank
      * The function accepts INTEGER_ARRAY c as parameter.
      */
 
-    int jumpingOnClouds(vector<int> c) {
+    int jumpingOnClouds(std::vector<int> c) {
         int jumps = 0;
         for(int i=0;i<c.size();i++)
         {
@@ -360,7 +359,7 @@ namespace HackerRank
      *  2. LONG_INTEGER n
      */
 
-    long repeatedString(string s, long n) {
+    long repeatedString(std::string s, long n) {
         long occurences = 0, rep = n/s.size(), rem = n%s.size();
         if(s == "a")
             return n;
@@ -388,9 +387,9 @@ namespace HackerRank
      * The function accepts STRING s as parameter.
      */
 
-    string funnyString(string s){
-        string s_copy = s;
-        reverse(s_copy.begin(),s_copy.end());
+    std::string funnyString(std::string s){
+        std::string s_copy = s;
+        std::reverse(s_copy.begin(),s_copy.end());
         for(int i=0;i<s.length()-1;i++)
         {
             if(abs(s[i]-s[i+1]) != abs(s_copy[i]-s_copy[i+1]))
@@ -446,7 +445,7 @@ namespace HackerRank
      * 
      * Complete the catAndMouse function below.
      */
-    string catAndMouse(int x, int y, int z) {
+    std::string catAndMouse(int x, int y, int z) {
         if(abs(z-y) < abs(z-x))
             return "Cat B";
         else if(abs(z-y) > abs(z-x))
@@ -461,7 +460,7 @@ namespace HackerRank
      *
      * Complete the angryProfessor function below.
      */
-    string angryProfessor(int k, vector<int> a) {
+    std::string angryProfessor(int k, std::vector<int> a) {
         int arrivedStud=0;
         for(int i=0;i<a.size();i++)
             {
@@ -478,8 +477,8 @@ namespace HackerRank
      * 
      * Complete the kangaroo function below. 
     */
-    string kangaroo(int x1, int v1, int x2, int v2) {
-        string yn = "NO";
+    std::string kangaroo(int x1, int v1, int x2, int v2) {
+        std::string yn = "NO";
         bool can = (v2<v1);
         if(can == true){
             bool intersect = (x1-x2)%(v1-v2)==0;
@@ -499,7 +498,7 @@ namespace HackerRank
      *  1. INTEGER steps
      *  2. STRING path
      */
-    int countingValleys(int steps, string path) {
+    int countingValleys(int steps, std::string path) {
         int a=0,c=0;
         bool b = false;
         for(int i=0;i<path.length();i++)
@@ -524,14 +523,117 @@ namespace HackerRank
      *
      *Complete the bonAppetit function below.
     */
-    void bonAppetit(vector<int> bill, int k, int b) {
+    void bonAppetit(std::vector<int> bill, int k, int b) {
         int bActual=0;
         for(int i=0;i<bill.size();i++)
             if(i!=k)
                 bActual += bill[i];
         bActual /= 2;
         if(b - bActual == 0)
-            cout << "Bon Appetit";
-        else cout << b-bActual;
+            std::cout << "Bon Appetit";
+        else std::cout << b-bActual;
     }
+
+    /*
+     * Problem: https://www.hackerrank.com/challenges/ctci-bubble-sort/problem
+     *
+     * Complete the 'countSwaps' function below.
+     *
+     * The function accepts INTEGER_ARRAY a as parameter.
+     */
+    
+    void countSwaps(std::vector<int> a) {
+        int swaps = 0;
+        for(int i=0;i<a.size();i++){
+            for(int j=0;j < a.size()-1;j++)
+            {
+                if(a[j] > a[j+1])
+                {
+                    int aux = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = aux;
+                    swaps++;
+                }
+            }
+        }
+        std::cout << "Array is sorted in " << swaps << " swaps." << std::endl;
+        std::cout << "First Element: " << a[0] << std::endl;
+        std::cout << "Last Element: " << a[a.size()-1] << std::endl;
+    }
+
+
+    /*
+     * Problem: https://www.hackerrank.com/challenges/mark-and-toys/problem
+     *
+     * Complete the 'maximumToys' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY prices
+     *  2. INTEGER k
+     */
+    int maximumToys(std::vector<int> prices, int k) {
+        /*
+            Finding the number of toys which can be bought
+            can be easier if the array/vector is sorted beforehand.
+            Using std::sort is the safest choice here since
+            it's a lot more efficient than your typical bubble sort.
+        */
+        std::sort(prices.begin(),prices.end());
+        int maxElements = 0, maxSum = 0;
+
+        // Iterate through the vector
+        for(int i=0;i<prices.size();i++)
+        {
+            /*
+                With a sorted array, when we find the maximum
+                amount of items we can straight up stop the iteration
+                since it makes no sense to do futher checks.
+            */
+            if(maxSum + prices[i] > k)
+                break;
+            maxSum += prices[i];
+            maxElements++;
+        }
+        return maxElements;
+    }
+
+
+    /*
+        Problem: https://www.hackerrank.com/challenges/ctci-comparator-sorting/problem
+
+        Required class.
+    */
+    class Player{
+        public:
+            int score;
+            std::string name;
+    };
+
+    /*
+        Problem: https://www.hackerrank.com/challenges/ctci-comparator-sorting/problem
+
+        This solution is appliable when using C++ 11 and 14.
+
+        For C++ 20, this problem doesn't have any kind of written code at all,
+        so solving it should be a little bit more challenging, but it also gives you
+        the freedom of solving it however you wish.
+    */
+    class Checker{
+        public:
+          	// complete this method
+            static int comparator(Player a, Player b){
+                if(a.score < b.score)
+                    return -1;
+                else if(a.score > b.score)
+                    return 1;
+                if(a.score == b.score){
+                    if(a.name > b.name)
+                        return -1;
+                    else if(a.name < b.name)
+                        return 1;
+                }
+                return 0;
+            }
+    };
 }
