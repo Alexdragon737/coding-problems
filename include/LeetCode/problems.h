@@ -146,5 +146,107 @@ namespace LeetCode
             }
             return low;
         }
+
+        // Problem: https://leetcode.com/problems/running-sum-of-1d-array/
+        std::vector<int> runningSum(std::vector<int>& nums){
+            std::vector<int> runner(nums);
+            for(int i=1;i<nums.size();i++)
+            {
+                runner[i] += runner[i-1];
+            }
+            return runner;
+        }
+
+        // Problem: https://leetcode.com/problems/richest-customer-wealth/
+        int maximumWealth(std::vector<std::vector<int>>& accounts){
+            int maxSum = 0;
+            for(int i=0;i<accounts.size();i++)
+            {
+                int localSum = 0;
+                for(int j=0;j<accounts[i].size();j++)
+                    localSum += accounts[i][j];
+                if(localSum > maxSum)
+                    maxSum = localSum;
+            }
+            return maxSum;
+        }
+
+        // Problem: https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+        int numberOfSteps(int num){
+            int steps = 0;
+            while(num != 0)
+            {
+                if(num % 2 == 0)
+                    num /= 2;
+                else num--;
+                steps++;
+            }
+            return steps;
+        }
+
+        // Problem: https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/submissions/
+        int strStr(std::string haystack, std::string needle) {
+            return haystack.find(needle);
+        }
+
+        // Problem: https://leetcode.com/problems/valid-palindrome/description/
+        // TODO: If I remember, maybe I'll try to solve this in a more efficient way. At the very least I need to understand some other solutions
+        std::string toLowerCase(std::string& s){
+            for(int i=0;i<s.length();i++)
+                if(s[i] >= 65 && s[i] <= 90)
+                    s[i] += 32;
+            return s;
+        }
+
+        std::string removeNonAlpha(std::string& s) {
+	        int len = s.length(), i = 0;
+	        while (i<len)
+	        	if (!isalnum(s[i]))
+	        	{
+	        		s.erase(i, 1);
+	        		len--;
+	        	}
+	        	else i++;
+	        return s;
+        }
+
+        bool isPalindrome(std::string s) {
+        bool result = true;
+        s = toLowerCase(s);
+        s = removeNonAlpha(s);
+        for(int i=0;i<s.length()/2;i++)
+        {
+            if(s[i] == s[s.length()-i-1])
+                continue;
+            else{
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+        // Problem: https://leetcode.com/problems/valid-anagram/description/
+        bool isAnagram(std::string s, std::string t) {
+        std::map<char,int> freq;
+        for(auto c : s)
+        {
+            freq[c]++;
+        }
+
+        for(auto c : t)
+        {
+            freq[c]--;
+        }
+
+        for(auto it : freq)
+        {
+            if(it.second != 0)
+                return false;
+        }
+        return true;
+    }
+
+        
     };
 }
